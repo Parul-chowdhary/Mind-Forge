@@ -126,3 +126,4 @@
 - [PR #145] Throttle canvas particle simulation to 30fps when document tab is hidden (merged from feature/synapse-fps-throttling-idle)
 - [PR #146] Add safe backward-compatible state schema migration utility (merged from feature/localstorage-schema-version-migration)
 - [PR #147] Generate diverse global competitor profiles with distinct playstyles (merged from feature/leaderboard-mock-competitor-profiles)
+- [PR #148] Render animated svg diamond and platinum trophy tiers for achievements (merged from feature/profile-trophy-tier-badges)
