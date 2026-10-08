@@ -115,3 +115,4 @@
 - [PR #134] Expand offline 5-letter vocabulary database with competition valid words (merged from feature/lexicon-five-letter-dictionary)
 - [PR #135] Tune minimax heuristic corner stability weight matrix for Reversi AI (merged from feature/reversi-corner-stability-weights)
 - [PR #136] Add dual column constraint inference engine for Picross solver (merged from feature/nonogram-column-constraint-solver)
+- [PR #137] Add infinite undo and redo history stack for Sudoku pencil annotations (merged from feature/sudoku-pencil-notes-undo-stack)
