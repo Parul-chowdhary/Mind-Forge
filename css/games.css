@@ -1,0 +1,836 @@
+/* ==========================================================================
+   MINDFORGE GAMES ARENA & BOARD STYLES
+   ========================================================================== */
+
+/* Universal Game Arena Container */
+.game-arena-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .game-arena-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game-stage-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 580px;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-stage-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mind-indigo), var(--forge-amber), var(--cyber-cyan));
+}
+
+.game-header-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.game-title-group h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.game-title-group p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.game-hud-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hud-pill {
+  background: rgba(10, 13, 22, 0.7);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 75px;
+}
+.hud-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.hud-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  font-family: var(--font-mono);
+}
+
+/* Sidebar Info Panel */
+.game-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game-controls-box {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.controls-section-title {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   1. BOARD & STRATEGY (REVERSI & CHESS PUZZLES)
+   ========================================================================== */
+
+/* Reversi Grid */
+.reversi-board {
+  display: grid;
+  grid-template-columns: repeat(8, 54px);
+  grid-template-rows: repeat(8, 54px);
+  gap: 4px;
+  background: #0d2818;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  border: 3px solid #1e3a24;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,0,0,0.5);
+  user-select: none;
+}
+
+.reversi-cell {
+  background: #155d27;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease;
+}
+.reversi-cell:hover {
+  background: #1b7331;
+}
+
+.reversi-disc {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reversi-disc.black {
+  background: radial-gradient(circle at 35% 35%, #475569, #0f172a 70%);
+  border: 1px solid #1e293b;
+}
+.reversi-disc.white {
+  background: radial-gradient(circle at 35% 35%, #ffffff, #cbd5e1 70%);
+  border: 1px solid #e2e8f0;
+}
+.reversi-valid-hint {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 8px var(--forge-amber);
+  animation: pulseHint 1.5s infinite;
+}
+@keyframes pulseHint {
+  0%, 100% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Chess Puzzle Board */
+.chess-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.chess-board {
+  display: grid;
+  grid-template-columns: repeat(8, 56px);
+  grid-template-rows: repeat(8, 56px);
+  border: 3px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.chess-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background 0.15s;
+}
+.chess-square.light {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+.chess-square.dark {
+  background: #475569;
+  color: #0f172a;
+}
+.chess-square.selected {
+  background: #f59e0b !important;
+  color: #000000 !important;
+}
+.chess-square.valid-move::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* ==========================================================================
+   2. LOGIC PUZZLES (PICROSS / NONOGRAM & EINSTEIN RIDDLE)
+   ========================================================================== */
+
+.picross-layout {
+  display: grid;
+  grid-template-areas: 
+    ". top-clues"
+    "left-clues board";
+  gap: 4px;
+}
+.picross-top-clues {
+  grid-area: top-clues;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 6px;
+}
+.picross-col-clue {
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.picross-left-clues {
+  grid-area: left-clues;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 8px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.picross-grid {
+  grid-area: board;
+  display: grid;
+  gap: 2px;
+  background: #1e293b;
+  padding: 4px;
+  border-radius: 6px;
+  border: 2px solid #334155;
+}
+.picross-cell {
+  width: 38px;
+  height: 38px;
+  background: #0f172a;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  user-select: none;
+  transition: background 0.1s;
+}
+.picross-cell.filled {
+  background: var(--mind-indigo);
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
+}
+.picross-cell.crossed {
+  color: var(--speed-rose);
+  font-weight: 800;
+}
+
+/* Einstein Riddle Clues Table */
+.einstein-clues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.einstein-clue-item {
+  background: rgba(18, 22, 38, 0.7);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--cyber-cyan);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.einstein-clue-item.crossed-out {
+  opacity: 0.45;
+  text-decoration: line-through;
+  border-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   3. NUMBER PUZZLES (SUDOKU & 2048)
+   ========================================================================== */
+
+/* Sudoku 9x9 */
+.sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 44px);
+  grid-template-rows: repeat(9, 44px);
+  border: 3px solid #6366f1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e243b;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.sudoku-cell {
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: all 0.15s;
+}
+.sudoku-cell:nth-child(3n) {
+  border-right: 2px solid #6366f1;
+}
+.sudoku-cell:nth-child(9n) {
+  border-right: none;
+}
+.sudoku-cell.row-bottom-border {
+  border-bottom: 2px solid #6366f1;
+}
+.sudoku-cell.given {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.03);
+}
+.sudoku-cell.user-filled {
+  color: var(--cyber-cyan);
+}
+.sudoku-cell.selected {
+  background: rgba(99, 102, 241, 0.35) !important;
+}
+.sudoku-cell.highlight-match {
+  background: rgba(245, 158, 11, 0.2);
+}
+.sudoku-cell.error {
+  background: rgba(244, 63, 94, 0.3) !important;
+  color: #fda4af;
+}
+
+.sudoku-numpad {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.sudoku-num-btn {
+  width: 44px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+.sudoku-num-btn:hover {
+  background: var(--mind-indigo);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* 2048 Grid */
+.game-2048-board {
+  width: 380px;
+  height: 380px;
+  background: #1e2438;
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  position: relative;
+}
+.tile-2048 {
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.tile-2048[data-val="2"] { background: #3b4252; color: #eceff4; }
+.tile-2048[data-val="4"] { background: #434c5e; color: #eceff4; }
+.tile-2048[data-val="8"] { background: #d08770; color: #ffffff; }
+.tile-2048[data-val="16"] { background: #bf616a; color: #ffffff; }
+.tile-2048[data-val="32"] { background: #b48ead; color: #ffffff; }
+.tile-2048[data-val="64"] { background: #88c0d0; color: #1e2438; }
+.tile-2048[data-val="128"] { background: #81a1c1; color: #1e2438; font-size: 1.4rem; }
+.tile-2048[data-val="256"] { background: #5e81ac; color: #ffffff; font-size: 1.4rem; }
+.tile-2048[data-val="512"] { background: #ebcb8b; color: #1e2438; font-size: 1.4rem; }
+.tile-2048[data-val="1024"] { background: #a3be8c; color: #1e2438; font-size: 1.2rem; }
+.tile-2048[data-val="2048"] { background: #f59e0b; color: #ffffff; font-size: 1.2rem; box-shadow: 0 0 25px #f59e0b; }
+
+/* ==========================================================================
+   4. WORD GAMES (WORDLE & CRYPTOGRAM)
+   ========================================================================== */
+
+/* Wordle Board */
+.wordle-board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, 52px);
+  gap: 8px;
+}
+.wordle-tile {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #334155;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  user-select: none;
+}
+.wordle-tile.correct {
+  background: var(--logic-emerald);
+  border-color: var(--logic-emerald);
+  color: #ffffff;
+}
+.wordle-tile.present {
+  background: var(--forge-amber);
+  border-color: var(--forge-amber);
+  color: #ffffff;
+}
+.wordle-tile.absent {
+  background: #334155;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+/* Virtual Keyboard */
+.wordle-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 500px;
+}
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.key-btn {
+  height: 50px;
+  min-width: 36px;
+  padding: 0 10px;
+  border-radius: 6px;
+  background: #334155;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.key-btn.wide {
+  min-width: 58px;
+  font-size: 0.8rem;
+}
+.key-btn.correct { background: var(--logic-emerald); }
+.key-btn.present { background: var(--forge-amber); }
+.key-btn.absent { background: #1e293b; opacity: 0.5; }
+
+/* Cryptogram Layout */
+.cryptogram-text-box {
+  background: rgba(18, 22, 38, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  line-height: 2.2;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  max-width: 650px;
+}
+.crypto-word {
+  display: inline-flex;
+  margin-right: 14px;
+}
+.crypto-letter-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 26px;
+}
+.crypto-input {
+  width: 24px;
+  height: 28px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glow);
+  color: var(--cyber-cyan);
+  border-radius: 4px;
+  outline: none;
+}
+.crypto-cipher-char {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   5. MEMORY GAMES (QUANTUM SIMON & DUAL N-BACK)
+   ========================================================================== */
+
+/* Quantum Simon */
+.simon-pad-circle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  position: relative;
+  background: #101422;
+  border: 6px solid #1a2035;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+.simon-quadrant {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+.simon-quadrant.q-green { background: #059669; }
+.simon-quadrant.q-red { background: #dc2626; }
+.simon-quadrant.q-yellow { background: #d97706; }
+.simon-quadrant.q-blue { background: #2563eb; }
+
+.simon-quadrant.active {
+  filter: brightness(2);
+  box-shadow: 0 0 35px #ffffff;
+  transform: scale(0.97);
+}
+
+.simon-center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #090c14;
+  border: 4px solid #1e263d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dual N-Back */
+.nback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 10px;
+  background: rgba(18, 22, 38, 0.7);
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-glow);
+}
+.nback-cell {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  transition: background 0.15s;
+}
+.nback-cell.active-spatial {
+  background: var(--cyber-cyan);
+  box-shadow: 0 0 25px var(--cyber-cyan);
+}
+
+/* ==========================================================================
+   6. PATTERN RECOGNITION (RAVEN IQ MATRIX)
+   ========================================================================== */
+
+.raven-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(3, 110px);
+  gap: 12px;
+  background: #141828;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-subtle);
+  margin-bottom: 24px;
+}
+.raven-tile {
+  background: #1c2238;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.raven-tile.missing {
+  border: 2px dashed var(--forge-amber);
+  background: rgba(245, 158, 11, 0.08);
+  font-size: 2rem;
+  color: var(--forge-amber);
+}
+
+.raven-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 12px;
+}
+.raven-opt-card {
+  width: 100px;
+  height: 100px;
+  background: #1a2035;
+  border: 2px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.raven-opt-card:hover {
+  border-color: var(--forge-amber);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   7. DEDUCTION & DETECTIVE (CASE FILES & MASTERMIND)
+   ========================================================================== */
+
+.detective-dossier-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  width: 100%;
+}
+.suspects-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.suspect-card {
+  background: rgba(18, 22, 38, 0.7);
+  border: 1px solid var(--border-subtle);
+  padding: 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all var(--transition-fast);
+}
+.suspect-card:hover, .suspect-card.active {
+  border-color: var(--speed-rose);
+  background: rgba(30, 36, 62, 0.8);
+}
+
+.detective-case-sheet {
+  background: rgba(18, 22, 38, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Mastermind Code Breaker */
+.mastermind-board {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mastermind-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+}
+.mm-peg-group {
+  display: flex;
+  gap: 10px;
+}
+.mm-peg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.mm-feedback {
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  gap: 4px;
+}
+.mm-pin {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #334155;
+}
+.mm-pin.black { background: #ffffff; box-shadow: 0 0 6px #ffffff; }
+.mm-pin.white { background: #94a3b8; }
+
+/* ==========================================================================
+   8. SPEED & REACTION (STROOP & REFLEX AIM)
+   ========================================================================== */
+
+.stroop-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+}
+.stroop-word {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: transform 0.1s;
+}
+.stroop-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 140px);
+  gap: 16px;
+}
+
+/* Aim Reflex Grid */
+.aim-arena {
+  width: 480px;
+  height: 380px;
+  background: #090c14;
+  border: 2px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.aim-target {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f43f5e 30%, #be123c 70%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 20px #f43f5e;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  animation: targetShrink 1.8s linear forwards;
+}
+@keyframes targetShrink {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.2; }
+}
+
+/* ==========================================================================
+   9. MAZE & PATHFINDING
+   ========================================================================== */
+
+.maze-canvas-wrapper {
+  position: relative;
+  background: #080a12;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-subtle);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+#maze-canvas {
+  display: block;
+}
+.maze-torch-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--torch-x, 50%) var(--torch-y, 50%), transparent 90px, rgba(4, 5, 8, 0.96) 220px);
+}
