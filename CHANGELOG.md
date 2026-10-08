@@ -113,3 +113,4 @@
 - [PR #132] Add dual XOR boolean shape combination puzzles to pattern bank (merged from feature/pattern-matrix-xor-operations)
 - [PR #133] Expand crime scenario dossiers with verified physical clue chains (merged from feature/detective-dossier-forensic-clues)
 - [PR #134] Expand offline 5-letter vocabulary database with competition valid words (merged from feature/lexicon-five-letter-dictionary)
+- [PR #135] Tune minimax heuristic corner stability weight matrix for Reversi AI (merged from feature/reversi-corner-stability-weights)
