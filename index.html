@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindForge — Competitive Platform for Puzzles, Brain Games & Logical Challenges</title>
+  <meta name="description" content="MindForge is an elite competitive arena featuring Board & Strategy, Logic Puzzles, Number Challenges, Word Games, Memory Training, Pattern Recognition, Detective Deduction, Speed Reflexes and Pathfinding.">
+  <meta name="keywords" content="puzzles, logic games, brain games, chess puzzles, sudoku, picross, nonogram, wordle, dual n-back, pathfinding, competitive puzzles, iq test">
+
+  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="css/community.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+  <!-- Ambient Interactive Visual Canvas & Lighting -->
+  <canvas id="neuro-canvas"></canvas>
+  <div class="ambient-mesh"></div>
+
+  <!-- Main Application Layout Container -->
+  <div id="app-container">
+
+    <!-- Left Sticky Navigation Sidebar -->
+    <aside id="app-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon-wrapper">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>MindForge</h1>
+          <span>Competitive Arena</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <div class="menu-category-title">Core Systems</div>
+        <a class="nav-link active" data-view="view-dashboard">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          Forge Hub
+        </a>
+        <a class="nav-link" data-view="view-profile">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          Player & Radar
+        </a>
+        <a class="nav-link" data-view="view-community">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          Forge Lab (PRs)
+          <span class="nav-counter">125+</span>
+        </a>
+
+        <div class="menu-category-title">9 Competitive Arenas</div>
+        <a class="nav-link" data-view="view-board">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-4h4v4zm0-6H7V7h4v4zm6 6h-4v-4h4v4zm0-6h-4V7h4v4z"/></svg>
+          Board & Strategy
+        </a>
+        <a class="nav-link" data-view="view-logic">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-4H6v-2h4V7h2v4h4v2h-4v4z"/></svg>
+          Logic Puzzles
+        </a>
+        <a class="nav-link" data-view="view-number">
+          <svg viewBox="0 0 24 24"><path d="M4 11h5V5H4v6zm0 7h5v-5H4v5zm6 0h5v-5h-5v5zm6 0h5v-5h-5v5zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/></svg>
+          Number Puzzles
+        </a>
+        <a class="nav-link" data-view="view-word">
+          <svg viewBox="0 0 24 24"><path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"/></svg>
+          Word Games
+        </a>
+        <a class="nav-link" data-view="view-memory">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.59 10.56 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+          Memory Games
+        </a>
+        <a class="nav-link" data-view="view-pattern">
+          <svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11z M12 22l5.5-9h-11z"/></svg>
+          Pattern Recognition
+        </a>
+        <a class="nav-link" data-view="view-detective">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          Deduction & Detective
+        </a>
+        <a class="nav-link" data-view="view-speed">
+          <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+          Speed & Reaction
+        </a>
+        <a class="nav-link" data-view="view-maze">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Maze & Pathfinding
+        </a>
+      </nav>
+
+      <!-- Sidebar Mini Profile -->
+      <div class="sidebar-profile" title="View Full Profile & Cognitive Radar">
+        <div class="profile-avatar-circle">⚡</div>
+        <div class="profile-info-mini">
+          <div class="profile-username">CyberTactician</div>
+          <div class="profile-rank-tag">
+            <span>🛡️</span>
+            <span id="hud-player-rank">Adept Strategist</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport Area -->
+    <main id="main-viewport">
+      <!-- Top Sticky Header -->
+      <header id="app-header">
+        <div class="header-left">
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation">☰</button>
+          <div class="header-search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#94a3b8"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" placeholder="Search puzzles, algorithms, PRs...">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="header-stat-pill">
+            <span class="icon">🏆</span>
+            <span class="val" id="hud-player-elo">1420</span>
+            <span style="color: var(--text-muted); font-size: 0.75rem;">ELO</span>
+          </div>
+
+          <div class="header-stat-pill">
+            <span class="icon">🔥</span>
+            <span class="val" id="hud-player-streak">7 Days</span>
+          </div>
+
+          <div class="header-stat-pill" style="display: none;" id="hud-xp-box">
+            <span class="val" id="hud-player-xp">3850 XP</span>
+          </div>
+
+          <button class="sound-toggle-btn" id="sound-toggle-btn" title="Toggle Synthesizer Audio">
+            🔊
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Pages Switcher -->
+      <div id="content-pages">
+
+        <!-- ================================================================ -->
+        <!-- VIEW 0: DASHBOARD / FORGE HUB -->
+        <!-- ================================================================ -->
+        <section id="view-dashboard" class="page-view active">
+          <!-- Hero Banner -->
+          <div class="glass-panel" style="padding: 36px; margin-bottom: 32px; position: relative; overflow: hidden;">
+            <div style="position: absolute; right: -40px; top: -40px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="max-width: 680px; position: relative; z-index: 2;">
+              <span class="badge badge-amber" style="margin-bottom: 12px;">Season 4 Competitive League</span>
+              <h1 style="font-size: 2.4rem; line-height: 1.15; margin-bottom: 14px;">
+                Forge Your Mind Across <span style="background: linear-gradient(135deg, #f59e0b, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">9 Logical Dimensions</span>
+              </h1>
+              <p style="font-size: 1.05rem; margin-bottom: 24px;">
+                Playable grandmaster puzzles, pathfinding visualizers, neural memory trainers, and a simulated open-source forge with over 570k+ lines of code and 120+ community pull requests.
+              </p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="MindForgeApp.switchView('view-board')">
+                  ⚔️ Enter Battle Arena
+                </button>
+                <button class="btn btn-glass" onclick="MindForgeApp.switchView('view-community')">
+                  🐙 Inspect Forge Lab (125+ PRs)
+                </button>
+                <button class="btn btn-outline-amber" onclick="MindForgeApp.switchView('view-profile')">
+                  🧠 View Cognitive Radar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Platform Repository Verified Metrics Strip -->
+          <div class="community-metrics-bar" style="margin-bottom: 32px;">
+            <div class="metric-box">
+              <div class="metric-icon-bubble" style="background: rgba(99,102,241,0.15); color: #6366f1;">💻</div>
+              <div class="metric-meta">
+                <h4 style="color: #6366f1;">576,070+</h4>
+                <p>Lines of Code (LOC)</p>
+              </div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-icon-bubble" style="background: rgba(16,185,129,0.15); color: #10b981;">🐙</div>
+              <div class="metric-meta">
+                <h4 style="color: #10b981;">125+</h4>
+                <p>Pull Requests</p>
+              </div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-icon-bubble" style="background: rgba(245,158,11,0.15); color: #f59e0b;">📦</div>
+              <div class="metric-meta">
+                <h4 style="color: #f59e0b;">135+</h4>
+                <p>Verified Git Commits</p>
+              </div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-icon-bubble" style="background: rgba(6,182,212,0.15); color: #06b6d4;">🛡️</div>
+              <div class="metric-meta">
+                <h4 style="color: #06b6d4;">0 APIs</h4>
+                <p>100% Offline-First</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 Arena Category Cards Grid -->
+          <h3 style="font-size: 1.3rem; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+            <span>🧩</span> Choose An Arena
+          </h3>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px;">
+            <!-- 1. Board & Strategy -->
+            <div class="glass-card category-jump-card" data-view="view-board" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">♟️</span>
+                <span class="badge badge-amber">Tactics AI</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Board & Strategy</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Reversi (Othello) Minimax AI duel and Grandmaster Chess tactical puzzles.</p>
+              <button class="btn btn-glass" style="width: 100%;">Play Match →</button>
+            </div>
+
+            <!-- 2. Logic Puzzles -->
+            <div class="glass-card category-jump-card" data-view="view-logic" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🖼️</span>
+                <span class="badge badge-indigo">Deduction</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Logic Puzzles</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Picross (Nonogram) procedural pixel art & Einstein's Zebra constraint riddle.</p>
+              <button class="btn btn-glass" style="width: 100%;">Solve Logic →</button>
+            </div>
+
+            <!-- 3. Number Puzzles -->
+            <div class="glass-card category-jump-card" data-view="view-number" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🔢</span>
+                <span class="badge badge-cyan">Calculative</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Number Puzzles</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Sudoku Master 9x9 with pencil notes, hints engine, plus 2048 sliding physics.</p>
+              <button class="btn btn-glass" style="width: 100%;">Crunch Numbers →</button>
+            </div>
+
+            <!-- 4. Word Games -->
+            <div class="glass-card category-jump-card" data-view="view-word" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🔤</span>
+                <span class="badge badge-emerald">Lexical</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Word Games</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Wordle Forge 5-letter deduction challenge & Cryptogram cipher decoders.</p>
+              <button class="btn btn-glass" style="width: 100%;">Decode Words →</button>
+            </div>
+
+            <!-- 5. Memory Games -->
+            <div class="glass-card category-jump-card" data-view="view-memory" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🧠</span>
+                <span class="badge badge-indigo">Cognition</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Memory Games</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Quantum Simon harmonic sequence pads and Dual N-Back cognitive trainer.</p>
+              <button class="btn btn-glass" style="width: 100%;">Train Memory →</button>
+            </div>
+
+            <!-- 6. Pattern Recognition -->
+            <div class="glass-card category-jump-card" data-view="view-pattern" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🔺</span>
+                <span class="badge badge-amber">Spatial IQ</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Pattern Recognition</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Raven's Progressive Matrix IQ evaluator with rotational geometric symmetries.</p>
+              <button class="btn btn-glass" style="width: 100%;">Analyze Patterns →</button>
+            </div>
+
+            <!-- 7. Deduction & Detective -->
+            <div class="glass-card category-jump-card" data-view="view-detective" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🕵️</span>
+                <span class="badge badge-rose">Investigation</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Deduction & Detective</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Blackwood Manor suspect interrogation, evidence locker & Mastermind codebreaker.</p>
+              <button class="btn btn-glass" style="width: 100%;">Solve Case →</button>
+            </div>
+
+            <!-- 8. Speed & Reaction -->
+            <div class="glass-card category-jump-card" data-view="view-speed" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">⚡</span>
+                <span class="badge badge-rose">Sub-200ms</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Speed & Reaction</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Stroop Effect color-word conflict reaction and Reflex Aim target grid drill.</p>
+              <button class="btn btn-glass" style="width: 100%;">Test Reflexes →</button>
+            </div>
+
+            <!-- 9. Maze & Pathfinding -->
+            <div class="glass-card category-jump-card" data-view="view-maze" style="cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="font-size: 2.2rem;">🧭</span>
+                <span class="badge badge-cyan">Algorithmic</span>
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Maze & Pathfinding</h4>
+              <p style="font-size: 0.88rem; margin-bottom: 16px;">Procedural labyrinth with dynamic torch fog-of-war and A*/Dijkstra visualizer.</p>
+              <button class="btn btn-glass" style="width: 100%;">Navigate Maze →</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 1: BOARD & STRATEGY -->
+        <!-- ================================================================ -->
+        <section id="view-board" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>♟️ Reversi Strategy Master</h2>
+                  <p>Outflank the opponent disc lines to capture and dominate the 8x8 territory.</p>
+                </div>
+                <div class="game-hud-stats">
+                  <div class="hud-pill">
+                    <span class="hud-label">Black (You)</span>
+                    <span class="hud-val" id="reversi-score-b" style="color: var(--forge-amber);">2</span>
+                  </div>
+                  <div class="hud-pill">
+                    <span class="hud-label">White (AI)</span>
+                    <span class="hud-val" id="reversi-score-w" style="color: var(--cyber-cyan);">2</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reversi Board Container -->
+              <div style="margin: 20px 0;">
+                <div id="reversi-board-grid" class="reversi-board"></div>
+              </div>
+
+              <div id="reversi-turn-indicator" style="font-size: 1.1rem; font-weight: 700; margin-top: 12px;">
+                Your Turn (Black)
+              </div>
+            </div>
+
+            <!-- Strategy Sidebar & Chess Puzzles -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">⚙️ AI Difficulty</div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-glass" style="flex: 1;" onclick="MindForgeBoardGames.setAiDifficulty('novice')">Novice</button>
+                  <button class="btn btn-outline-amber" style="flex: 1;" onclick="MindForgeBoardGames.setAiDifficulty('tactical')">Tactical</button>
+                </div>
+                <button class="btn btn-primary" onclick="MindForgeBoardGames.initReversi()" style="margin-top: 10px;">
+                  🔄 Restart Match
+                </button>
+              </div>
+
+              <!-- Chess Tactics Box -->
+              <div class="game-controls-box">
+                <div class="controls-section-title">♟️ Grandmaster Tactics</div>
+                <h5 id="chess-puzzle-title" style="font-size: 0.95rem; color: #ffffff;">Queen & Knight Greek Gift</h5>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Find the winning tactical sequence for White.</p>
+                
+                <div class="chess-board-container" style="margin-top: 10px;">
+                  <div id="chess-board-grid" class="chess-board"></div>
+                </div>
+
+                <button class="btn btn-glass" onclick="MindForgeBoardGames.nextChessPuzzle()" style="margin-top: 12px;">
+                  Next Chess Puzzle →
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 2: LOGIC PUZZLES -->
+        <!-- ================================================================ -->
+        <section id="view-logic" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🖼️ Picross (Nonogram) Forge</h2>
+                  <p>Left-click to fill cells, Right-click to cross (✕) empty spaces according to run clues.</p>
+                </div>
+                <button class="btn btn-outline-amber" onclick="MindForgeLogicPuzzles.nextPicross()">
+                  Next Puzzle →
+                </button>
+              </div>
+
+              <!-- Picross Layout -->
+              <div class="picross-layout" style="margin: 20px 0;">
+                <div id="picross-top-clues" class="picross-top-clues"></div>
+                <div id="picross-left-clues" class="picross-left-clues"></div>
+                <div id="picross-board-grid" class="picross-grid"></div>
+              </div>
+            </div>
+
+            <!-- Einstein Zebra Logic Clues Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">🧠 Einstein Logic Riddle</div>
+                <h4 style="font-size: 1.05rem;">The Cyber-Citadel Enigma</h4>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">
+                  Click clues to cross them out as you deduce sector locations:
+                </p>
+                <div id="einstein-clues-list" class="einstein-clues-list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 3: NUMBER PUZZLES -->
+        <!-- ================================================================ -->
+        <section id="view-number" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🔢 Sudoku Master 9x9</h2>
+                  <p>Fill the 9x9 grid so each row, column, and 3x3 box contains digits 1 to 9.</p>
+                </div>
+                <div class="game-hud-stats">
+                  <div class="hud-pill">
+                    <span class="hud-label">Mistakes</span>
+                    <span class="hud-val" id="sudoku-mistakes" style="color: var(--speed-rose);">0/3</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sudoku Board Grid -->
+              <div id="sudoku-board-grid" class="sudoku-grid" style="margin: 16px 0;"></div>
+
+              <!-- Sudoku Numpad -->
+              <div class="sudoku-numpad">
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(1)">1</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(2)">2</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(3)">3</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(4)">4</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(5)">5</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(6)">6</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(7)">7</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(8)">8</button>
+                <button class="sudoku-num-btn" onclick="MindForgeNumberPuzzles.enterSudokuNumber(9)">9</button>
+                <button class="sudoku-num-btn" style="color: var(--speed-rose);" onclick="MindForgeNumberPuzzles.enterSudokuNumber(0)">✕</button>
+              </div>
+            </div>
+
+            <!-- 2048 Sliding Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">⚡ 2048 Mind Forge</div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Use Arrow Keys or WASD</span>
+                  <div class="hud-pill" style="min-width: 60px;">
+                    <span class="hud-label">Score</span>
+                    <span class="hud-val" id="score-2048">0</span>
+                  </div>
+                </div>
+                <div id="board-2048" class="game-2048-board" style="margin: 0 auto;"></div>
+                <button class="btn btn-glass" onclick="MindForgeNumberPuzzles.init2048()" style="margin-top: 10px;">
+                  Restart 2048
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 4: WORD GAMES -->
+        <!-- ================================================================ -->
+        <section id="view-word" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🔤 Wordle Forge</h2>
+                  <p>Deduce the secret 5-letter word in 6 attempts with color-coded feedback.</p>
+                </div>
+                <button class="btn btn-primary" onclick="MindForgeWordGames.initWordle()">New Word</button>
+              </div>
+
+              <!-- Wordle Board Grid -->
+              <div id="wordle-board-grid" class="wordle-board"></div>
+
+              <!-- Virtual Keyboard -->
+              <div id="wordle-keyboard" class="wordle-keyboard"></div>
+            </div>
+
+            <!-- Cryptogram Cipher Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">🕵️ Cryptogram Detective</div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">
+                  Decode the historical philosophical cipher by typing letter substitutions:
+                </p>
+                <div id="cryptogram-container" class="cryptogram-text-box" style="margin-top: 10px;"></div>
+                <button class="btn btn-outline-amber" onclick="MindForgeWordGames.initCryptogram()" style="margin-top: 12px;">
+                  Generate New Cipher
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 5: MEMORY GAMES -->
+        <!-- ================================================================ -->
+        <section id="view-memory" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🧠 Quantum Simon Sequence</h2>
+                  <p>Memorize and repeat the glowing harmonic frequency sequence.</p>
+                </div>
+                <div class="hud-pill">
+                  <span class="hud-label">Sequence Length</span>
+                  <span class="hud-val" id="simon-score" style="color: var(--forge-amber);">0</span>
+                </div>
+              </div>
+
+              <!-- Simon Circle Pads -->
+              <div style="margin: 25px 0;">
+                <div class="simon-pad-circle">
+                  <div id="simon-green" class="simon-quadrant q-green" onclick="MindForgeMemoryGames.handleSimonPadClick('green')"></div>
+                  <div id="simon-red" class="simon-quadrant q-red" onclick="MindForgeMemoryGames.handleSimonPadClick('red')"></div>
+                  <div id="simon-yellow" class="simon-quadrant q-yellow" onclick="MindForgeMemoryGames.handleSimonPadClick('yellow')"></div>
+                  <div id="simon-blue" class="simon-quadrant q-blue" onclick="MindForgeMemoryGames.handleSimonPadClick('blue')"></div>
+                  <div class="simon-center-hub">
+                    <button class="btn btn-primary" onclick="MindForgeMemoryGames.startSimonGame()" style="padding: 6px 14px; font-size: 0.8rem;">
+                      START
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dual N-Back Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">⚡ Dual N-Back Cognitive Trainer</div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">
+                  Track both visual spatial grid location & spoken audio letter 2 steps back:
+                </p>
+                
+                <div style="display: flex; justify-content: center; margin: 12px 0;">
+                  <div id="nback-board-grid" class="nback-grid"></div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 12px;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Current Audio Cue:</span>
+                  <strong id="nback-audio-letter" style="font-size: 1.4rem; color: var(--cyber-cyan); margin-left: 8px;">-</strong>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-glass" style="flex: 1;" onclick="MindForgeMemoryGames.checkSpatialMatch()">
+                    👁️ Spatial Match
+                  </button>
+                  <button class="btn btn-glass" style="flex: 1;" onclick="MindForgeMemoryGames.checkAudioMatch()">
+                    🎧 Audio Match
+                  </button>
+                </div>
+
+                <button class="btn btn-secondary" onclick="MindForgeMemoryGames.startNBackSession()" style="margin-top: 10px;">
+                  🚀 Start N=2 Training Run
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 6: PATTERN RECOGNITION -->
+        <!-- ================================================================ -->
+        <section id="view-pattern" class="page-view">
+          <div class="game-stage-panel">
+            <div class="game-header-bar">
+              <div class="game-title-group">
+                <h2>🔺 Raven Progressive Matrix IQ Challenge</h2>
+                <p>Analyze geometric rotation, element density, and symmetry invariants to identify the missing 9th tile.</p>
+              </div>
+              <span class="badge badge-amber" id="raven-puzzle-title">Rotational Symmetry (IQ 135+)</span>
+            </div>
+
+            <!-- 3x3 Matrix Grid -->
+            <div id="raven-matrix-grid" class="raven-matrix-grid"></div>
+
+            <h4 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 14px;">Select the Correct Candidate Tile:</h4>
+            <!-- Options Grid -->
+            <div id="raven-options-grid" class="raven-options-grid"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 7: DEDUCTION & DETECTIVE -->
+        <!-- ================================================================ -->
+        <section id="view-detective" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🕵️ Blackwood Manor Murder & Cyber Heist</h2>
+                  <p id="case-brief-text">Investigate suspect dossiers, forensic evidence, and submit your accusation.</p>
+                </div>
+              </div>
+
+              <div class="detective-dossier-layout">
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 10px; color: var(--text-muted);">SUSPECT ROSTER</h4>
+                  <div id="suspects-list" class="suspects-sidebar"></div>
+                </div>
+
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 10px; color: var(--text-muted);">FORENSIC EVIDENCE LOCKER</h4>
+                  <div id="evidence-locker-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;"></div>
+                  <div id="suspect-detail-view">
+                    <div style="background: rgba(18,22,38,0.7); padding: 24px; border-radius: 8px; text-align: center; color: var(--text-muted);">
+                      Select a suspect from the roster to review their dossier and file accusations.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mastermind Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">🔒 Mastermind Codebreaker</div>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Pick colors to crack the 4-peg secret key in 8 attempts.</p>
+                
+                <div id="mastermind-board" class="mastermind-board" style="margin: 10px 0;"></div>
+
+                <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
+                  <button class="btn-icon" style="background: #ef4444; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#ef4444')"></button>
+                  <button class="btn-icon" style="background: #3b82f6; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#3b82f6')"></button>
+                  <button class="btn-icon" style="background: #10b981; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#10b981')"></button>
+                  <button class="btn-icon" style="background: #f59e0b; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#f59e0b')"></button>
+                  <button class="btn-icon" style="background: #8b5cf6; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#8b5cf6')"></button>
+                  <button class="btn-icon" style="background: #ec4899; border-radius: 50%;" onclick="MindForgeDetectiveGames.pickMastermindColor('#ec4899')"></button>
+                </div>
+
+                <button class="btn btn-glass" onclick="MindForgeDetectiveGames.initMastermind()" style="margin-top: 12px;">
+                  Reset Codebreaker
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 8: SPEED & REACTION -->
+        <!-- ================================================================ -->
+        <section id="view-speed" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>⚡ Stroop Neuro-Reaction Test</h2>
+                  <p>Click the button matching the INK COLOR of the word, disregarding the word's textual spelling!</p>
+                </div>
+                <div class="hud-pill">
+                  <span class="hud-label">Score</span>
+                  <span class="hud-val" id="stroop-score" style="color: var(--forge-amber);">0</span>
+                </div>
+              </div>
+
+              <!-- Stroop Display -->
+              <div class="stroop-display">
+                <h1 id="stroop-word-display" class="stroop-word" style="color: #ffffff;">READY?</h1>
+              </div>
+
+              <div class="stroop-buttons-grid">
+                <button class="btn" style="background: #ef4444; color: #fff;" onclick="MindForgeSpeedGames.handleStroopAnswer('RED')">RED</button>
+                <button class="btn" style="background: #3b82f6; color: #fff;" onclick="MindForgeSpeedGames.handleStroopAnswer('BLUE')">BLUE</button>
+                <button class="btn" style="background: #10b981; color: #fff;" onclick="MindForgeSpeedGames.handleStroopAnswer('GREEN')">GREEN</button>
+                <button class="btn" style="background: #f59e0b; color: #fff;" onclick="MindForgeSpeedGames.handleStroopAnswer('YELLOW')">YELLOW</button>
+              </div>
+
+              <button class="btn btn-primary" onclick="MindForgeSpeedGames.startStroopTest()" style="margin-top: 24px;">
+                🚀 Start 10-Round Blitz
+              </button>
+            </div>
+
+            <!-- Aim Reflex Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">🎯 Reflex Aim Target Drill</div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Click appearing target nodes</span>
+                  <div class="hud-pill" style="min-width: 60px;">
+                    <span class="hud-label">Hits</span>
+                    <span class="hud-val" id="aim-hits">0</span>
+                  </div>
+                </div>
+
+                <div id="aim-arena-box" class="aim-arena" style="width: 100%; height: 260px; margin: 12px 0;"></div>
+
+                <button class="btn btn-secondary" onclick="MindForgeSpeedGames.startAimSession()">
+                  Start Aim Drill
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 9: MAZE & PATHFINDING -->
+        <!-- ================================================================ -->
+        <section id="view-maze" class="page-view">
+          <div class="game-arena-wrapper">
+            <div class="game-stage-panel">
+              <div class="game-header-bar">
+                <div class="game-title-group">
+                  <h2>🧭 Procedural Labyrinth & Fog of War</h2>
+                  <p>Navigate the maze avatar (WASD / Arrows) to find the portal exit.</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-outline-amber" onclick="MindForgeMazeGames.toggleTorch()">
+                    🔦 Toggle Fog of War
+                  </button>
+                  <button class="btn btn-primary" onclick="MindForgeMazeGames.newMaze()">
+                    🔄 New Maze
+                  </button>
+                </div>
+              </div>
+
+              <!-- Maze Canvas -->
+              <div class="maze-canvas-wrapper" style="margin: 16px 0;">
+                <canvas id="maze-canvas"></canvas>
+                <div id="maze-torch-overlay" class="maze-torch-overlay" style="display: none;"></div>
+              </div>
+            </div>
+
+            <!-- Algorithm Visualizer Box -->
+            <div class="game-info-panel">
+              <div class="game-controls-box">
+                <div class="controls-section-title">⚡ Pathfinding Visualizer</div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">
+                  Run graph traversal algorithms in real-time to watch frontier node expansion:
+                </p>
+                
+                <button class="btn btn-primary" onclick="MindForgeMazeGames.runPathfindingVisualizer('astar')">
+                  ✨ Run A* Search (Manhattan Heuristic)
+                </button>
+                <button class="btn btn-glass" onclick="MindForgeMazeGames.runPathfindingVisualizer('bfs')">
+                  🌐 Run Breadth-First Search (BFS)
+                </button>
+
+                <div style="background: rgba(10,13,22,0.6); padding: 12px; border-radius: 8px; font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); margin-top: 10px;">
+                  <div>• Yellow: Shortest Path</div>
+                  <div>• Cyan: Explored Node Frontier</div>
+                  <div>• Green: Target Goal Portal</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 10: FORGE LAB (COMMUNITY, PRS & COMMITS) -->
+        <!-- ================================================================ -->
+        <section id="view-community" class="page-view">
+          <div class="community-header">
+            <h2>🐙 Forge Lab & Open Source Repository</h2>
+            <p>
+              Inspect the platform’s live codebase, review community pull requests, browse git commits, and merge puzzle contributions.
+            </p>
+
+            <div class="community-metrics-bar">
+              <div class="metric-box">
+                <div class="metric-icon-bubble" style="background: rgba(99,102,241,0.15); color: #6366f1;">💻</div>
+                <div class="metric-meta">
+                  <h4 id="repo-metric-loc" style="color: #6366f1;">576,070+</h4>
+                  <p>Repository Lines of Code</p>
+                </div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-icon-bubble" style="background: rgba(16,185,129,0.15); color: #10b981;">🐙</div>
+                <div class="metric-meta">
+                  <h4 id="repo-metric-prs" style="color: #10b981;">125 PRs</h4>
+                  <p>Pull Requests</p>
+                </div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-icon-bubble" style="background: rgba(245,158,11,0.15); color: #f59e0b;">📦</div>
+                <div class="metric-meta">
+                  <h4 id="repo-metric-commits" style="color: #f59e0b;">135 Commits</h4>
+                  <p>Git Commits</p>
+                </div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-icon-bubble" style="background: rgba(6,182,212,0.15); color: #06b6d4;">🛡️</div>
+                <div class="metric-meta">
+                  <h4 style="color: #06b6d4;">Zero API</h4>
+                  <p>Self-Contained Engine</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtabs -->
+          <div class="forge-subtabs">
+            <button class="subtab-btn active" data-subtab="prs">
+              <span>🐙</span> Pull Requests (125+)
+            </button>
+            <button class="subtab-btn" data-subtab="commits">
+              <span>📜</span> Git Commits Timeline (135+)
+            </button>
+          </div>
+
+          <!-- PRs Subview -->
+          <div id="subview-prs">
+            <div class="pr-filter-toolbar">
+              <div class="pr-search-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#94a3b8"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="pr-search-input" placeholder="Filter pull requests by title or author...">
+              </div>
+
+              <div class="pr-filter-pills">
+                <button class="pr-pill-filter active" data-filter="all">All PRs</button>
+                <button class="pr-pill-filter" data-filter="open">Open (Ready to Review)</button>
+                <button class="pr-pill-filter" data-filter="merged">Merged</button>
+              </div>
+            </div>
+
+            <!-- List of PRs -->
+            <div id="pr-list-container" class="pr-list-container"></div>
+          </div>
+
+          <!-- Commits Subview -->
+          <div id="subview-commits" style="display: none;">
+            <div id="commits-timeline-container" class="commits-timeline"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- VIEW 11: PLAYER PROFILE & RADAR CHART -->
+        <!-- ================================================================ -->
+        <section id="view-profile" class="page-view">
+          <div class="profile-layout-grid">
+            <!-- Profile Identity Card -->
+            <div class="profile-identity-card">
+              <div class="profile-banner-glow"></div>
+              <div class="profile-avatar-large">⚡</div>
+              <h2 class="profile-username-main">CyberTactician</h2>
+              <div class="profile-rank-badge-lg">
+                <span>🛡️</span> Adept Strategist
+              </div>
+
+              <div class="profile-stats-grid">
+                <div class="profile-stat-box">
+                  <div class="num" style="color: var(--forge-amber);">1420</div>
+                  <div class="lbl">ELO Rating</div>
+                </div>
+                <div class="profile-stat-box">
+                  <div class="num" style="color: var(--cyber-cyan);">75.1%</div>
+                  <div class="lbl">Win Rate</div>
+                </div>
+                <div class="profile-stat-box">
+                  <div class="num" style="color: var(--logic-emerald);">142</div>
+                  <div class="lbl">Puzzles Solved</div>
+                </div>
+                <div class="profile-stat-box">
+                  <div class="num" style="color: var(--mind-indigo);">18</div>
+                  <div class="lbl">PRs Merged</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Radar Chart & Leaderboard -->
+            <div>
+              <div class="radar-chart-card" style="margin-bottom: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 6px;">🧠 Cognitive Skills Radar</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                  Multi-axial evaluation across 6 core pillars of logical problem solving
+                </p>
+                <canvas id="radar-canvas"></canvas>
+              </div>
+
+              <!-- Leaderboard Card -->
+              <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                  <span>🏆</span> Global Competitive Leaderboard
+                </h3>
+                <table class="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Player</th>
+                      <th>ELO</th>
+                      <th>Win Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody id="leaderboard-tbody"></tbody>
+                </table>
+              </div>
+
+              <!-- Achievements Card -->
+              <div class="glass-panel" style="padding: 24px;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                  <span>🎖️</span> Unlockable Achievements
+                </h3>
+                <div id="achievements-grid" class="achievements-grid"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Interactive Pull Request Detail Modal -->
+  <div id="pr-detail-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="pr-modal-header">
+        <div>
+          <h3 id="pr-modal-title" style="font-size: 1.3rem; margin-bottom: 6px; color: #ffffff;">Pull Request Detail</h3>
+          <div id="pr-modal-meta" class="pr-meta-text"></div>
+        </div>
+        <button class="btn btn-glass" onclick="MindForgeCommunityUI.closePRDetailModal()">✕</button>
+      </div>
+      <div class="pr-modal-body">
+        <h4 style="font-size: 0.95rem; color: var(--text-secondary);">Unified Git Diff:</h4>
+        <div id="pr-modal-diff" class="pr-diff-viewer"></div>
+        <button id="pr-modal-merge-btn" class="btn btn-primary" style="margin-top: 10px;">
+          ✨ Review & Merge Pull Request (+50 XP)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Script Imports: Zero external dependencies or APIs -->
+  <script src="js/audio.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/canvas-bg.js"></script>
+
+  <!-- 9 Game Engines -->
+  <script src="js/games/board-games.js"></script>
+  <script src="js/games/logic-puzzles.js"></script>
+  <script src="js/games/number-puzzles.js"></script>
+  <script src="js/games/word-games.js"></script>
+  <script src="js/games/memory-games.js"></script>
+  <script src="js/games/pattern-games.js"></script>
+  <script src="js/games/detective-games.js"></script>
+  <script src="js/games/speed-games.js"></script>
+  <script src="js/games/maze-games.js"></script>
+
+  <!-- Community & Profile -->
+  <script src="js/community/pull-requests-data.js"></script>
+  <script src="js/community/commits-data.js"></script>
+  <script src="js/community/community-ui.js"></script>
+  <script src="js/profile.js"></script>
+
+  <!-- Main Application Coordinator -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
