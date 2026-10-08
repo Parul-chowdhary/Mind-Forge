@@ -165,3 +165,4 @@
 - [PR #184] Persist master audio volume and sound effect toggles in LocalStorage (merged from feature/sound-fx-volume-slider-persistence)
 - [PR #185] Correct canvas display coordinate scaling on high-DPI Retina screens (merged from feature/canvas-high-dpi-retina-scaling)
 - [PR #186] Add JSON output format support to repository statistics auditor (merged from feature/stats-json-output-mode)
+- [PR #187] Update documentation with architecture overview and test commands (merged from feature/final-documentation-refinements)
