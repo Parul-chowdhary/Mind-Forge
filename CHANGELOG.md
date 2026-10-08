@@ -159,3 +159,4 @@
 - [PR #178] Generate colored emoji grid result block for sharing puzzle solutions (merged from feature/wordle-share-card-generator)
 - [PR #179] Add stereo spatial audio panning for advanced Dual N-Back sessions (merged from feature/nback-audio-stereo-panning)
 - [PR #180] Store historical IQ assessment scores for user performance tracking (merged from feature/raven-progression-graph-history)
+- [PR #181] Introduce red herring clues with lower logical consistency scores (merged from feature/detective-clue-relevance-weighting)
