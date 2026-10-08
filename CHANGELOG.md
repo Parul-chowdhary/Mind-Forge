@@ -111,3 +111,4 @@
 - [PR #130] Refine cryptographic quote corpus with historical computing enigmas (merged from feature/philosophical-cipher-corpus-tuning)
 - [PR #131] Cache optimal topological routing steps across 75,000 graph nodes (merged from feature/pathfinding-graph-heuristic-cache)
 - [PR #132] Add dual XOR boolean shape combination puzzles to pattern bank (merged from feature/pattern-matrix-xor-operations)
+- [PR #133] Expand crime scenario dossiers with verified physical clue chains (merged from feature/detective-dossier-forensic-clues)
