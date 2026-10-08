@@ -160,3 +160,4 @@
 - [PR #179] Add stereo spatial audio panning for advanced Dual N-Back sessions (merged from feature/nback-audio-stereo-panning)
 - [PR #180] Store historical IQ assessment scores for user performance tracking (merged from feature/raven-progression-graph-history)
 - [PR #181] Introduce red herring clues with lower logical consistency scores (merged from feature/detective-clue-relevance-weighting)
+- [PR #182] Spawn peripheral vision targets to test rapid saccadic eye reflexes (merged from feature/speed-peripheral-vision-aim-dots)
