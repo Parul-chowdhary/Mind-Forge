@@ -143,3 +143,4 @@
 - [PR #162] Introduce chaos mode with inverted meaning vs color font cues (merged from feature/stroop-inversion-chaos-mode)
 - [PR #163] Render gradient distance heat map for Dijkstra exploration tree (merged from feature/maze-dijkstra-heat-map)
 - [PR #164] Add optional soothing cosmic background ambient drone generator (merged from feature/webaudio-ambient-forge-hum)
+- [PR #165] Add interactive mouse repulsion field radius around particle links (merged from feature/canvas-mouse-repulsion-field)
