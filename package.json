@@ -1,0 +1,26 @@
+{
+  "name": "mind-forge",
+  "version": "2.4.0",
+  "description": "MindForge - A Premier Competitive Platform for Puzzles, Brain Games & Logical Challenges",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "test": "node scripts/run-tests.js",
+    "stats": "node scripts/calc-stats.js"
+  },
+  "keywords": [
+    "brain-games",
+    "puzzles",
+    "logic",
+    "chess",
+    "sudoku",
+    "nonogram",
+    "pathfinding",
+    "competitive-puzzles",
+    "iq-test",
+    "cognitive-training"
+  ],
+  "author": "MindForge Engineering Team",
+  "license": "MIT"
+}
