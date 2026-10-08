@@ -148,3 +148,4 @@
 - [PR #167] Add smooth leveling progress bar with glowing XP milestone pips (merged from feature/profile-xp-progress-bar)
 - [PR #168] Add micro-interaction scale transforms on button hover and active states (merged from feature/css-button-press-scale-transform)
 - [PR #169] Implement gentle pulsing box-shadow on active round timer badges (merged from feature/css-badge-pulsing-glow)
+- [PR #170] Configure Alpine healthcheck interval to 15 seconds with spider flag (merged from feature/dockerfile-healthcheck-script)
