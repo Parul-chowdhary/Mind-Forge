@@ -163,3 +163,4 @@
 - [PR #182] Spawn peripheral vision targets to test rapid saccadic eye reflexes (merged from feature/speed-peripheral-vision-aim-dots)
 - [PR #183] Allow user selection of custom maze grid dimensions from 10x10 to 30x30 (merged from feature/maze-custom-dimension-selector)
 - [PR #184] Persist master audio volume and sound effect toggles in LocalStorage (merged from feature/sound-fx-volume-slider-persistence)
+- [PR #185] Correct canvas display coordinate scaling on high-DPI Retina screens (merged from feature/canvas-high-dpi-retina-scaling)
