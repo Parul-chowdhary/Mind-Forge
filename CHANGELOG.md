@@ -153,3 +153,4 @@
 - [PR #172] Add clean target to remove scratch files and temporary test logs (merged from feature/makefile-clean-artifacts)
 - [PR #173] Add Vary Accept-Encoding headers to native HTTP static response (merged from feature/server-gzip-compression-headers)
 - [PR #174] Perform node syntax check pass on all production JS files during build (merged from feature/build-syntax-validation-pass)
+- [PR #175] Display standard algebraic chess notation log alongside puzzle board (merged from feature/chess-algebraic-notation-display)
