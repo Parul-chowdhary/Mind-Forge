@@ -142,3 +142,4 @@
 - [PR #161] Add in-game detective notepad for scribbling deduction hypotheses (merged from feature/detective-notepad-scrapbook)
 - [PR #162] Introduce chaos mode with inverted meaning vs color font cues (merged from feature/stroop-inversion-chaos-mode)
 - [PR #163] Render gradient distance heat map for Dijkstra exploration tree (merged from feature/maze-dijkstra-heat-map)
+- [PR #164] Add optional soothing cosmic background ambient drone generator (merged from feature/webaudio-ambient-forge-hum)
