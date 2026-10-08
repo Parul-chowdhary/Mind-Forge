@@ -78,12 +78,29 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`  MindForge Production Server Running on port ${PORT}`);
-  console.log(`  Local URL:   http://localhost:${PORT}`);
-  console.log(`  Healthcheck: http://localhost:${PORT}/health`);
-  console.log(`====================================================`);
+function startServer(portToTry) {
+  server.listen(portToTry, () => {
+    const actualPort = server.address().port;
+    console.log(`====================================================`);
+    console.log(`  MindForge Production Server Running on port ${actualPort}`);
+    console.log(`  Local URL:   http://localhost:${actualPort}`);
+    console.log(`  Healthcheck: http://localhost:${actualPort}/health`);
+    console.log(`====================================================`);
+  });
+}
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.warn(`Port ${PORT} in use, trying alternate port...`);
+    startServer(0); // 0 assigns a free ephemeral port automatically
+  } else {
+    console.error('Server error:', err);
+  }
 });
 
+if (require.main === module) {
+  startServer(PORT);
+}
+
 module.exports = server;
+module.exports.startServer = startServer;
