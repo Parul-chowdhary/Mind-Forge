@@ -100,3 +100,4 @@
 - [PR #119] Implement hotkey focus outlines on responsive sidebar navigation (merged from feature/dock-navigation-keyboard-shortcuts)
 - [PR #120] Promote glassmorphism game arenas to hardware accelerated composite layers (merged from feature/glassmorphism-card-gpu-layering)
 - [PR #121] Harden Alpine container build with non-root security principles (merged from feature/dockerfile-production-hardening)
+- [PR #122] Add healthcheck retries and auto-restart policy to compose manifest (merged from feature/compose-service-orchestration)
