@@ -31,12 +31,18 @@ const rootDir = path.join(__dirname, '..');
 const stats = countLinesInDir(rootDir);
 
 let commitCount = 0;
+let prCount = 0;
 try {
   const gitLog = execSync('git rev-list --count HEAD', { cwd: rootDir, encoding: 'utf8' }).trim();
   commitCount = parseInt(gitLog, 10) || 0;
+  const gitMerges = execSync('git rev-list --min-parents=2 --count HEAD', { cwd: rootDir, encoding: 'utf8' }).trim();
+  prCount = parseInt(gitMerges, 10) || 0;
 } catch (e) {
   commitCount = 0;
+  prCount = 0;
 }
+
+const entryPoints = ['server.js', 'Dockerfile', 'docker-compose.yml', 'Makefile'].every(f => fs.existsSync(path.join(rootDir, f)));
 
 console.log('==================================================');
 console.log('           MINDFORGE PLATFORM METRICS             ');
@@ -44,5 +50,7 @@ console.log('==================================================');
 console.log(`Total Files Checked:      ${stats.fileCount}`);
 console.log(`Total Lines of Code (LOC): ${stats.totalLines.toLocaleString()}`);
 console.log(`Target LOC (500,000):     ${stats.totalLines >= 500000 ? '✅ PASSED' : '❌ PENDING'}`);
-console.log(`Git Commits Count:        ${commitCount}`);
+console.log(`Git Commits Count:        ${commitCount} ${commitCount >= 100 ? '✅ (Target >= 100)' : ''}`);
+console.log(`Pull Requests / Merges:   ${prCount} ${prCount >= 80 ? '✅ (Target >= 80)' : ''}`);
+console.log(`Build Manifests Detected: ${entryPoints ? '✅ Dockerfile, docker-compose, Makefile, server.js' : '❌ MISSING'}`);
 console.log('==================================================');
