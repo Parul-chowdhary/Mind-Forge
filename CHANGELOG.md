@@ -93,3 +93,4 @@
 - [PR #112] Incorporate Shannon information entropy scorer into Wordle Forge (merged from feature/wordle-entropy-suggestion-engine)
 - [PR #113] Add letter frequency histogram tool to Cryptogram decoder (merged from feature/cryptogram-frequency-analysis)
 - [PR #114] Optimize sliding tile keyframe animations and matrix transpositions (merged from feature/2048-smooth-tile-physics)
+- [PR #115] Enhance 6-axis cognitive radar chart with glowing polygonal vertices (merged from feature/cognitive-radar-canvas-rendering)
