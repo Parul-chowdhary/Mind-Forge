@@ -102,3 +102,4 @@
 - [PR #121] Harden Alpine container build with non-root security principles (merged from feature/dockerfile-production-hardening)
 - [PR #122] Add healthcheck retries and auto-restart policy to compose manifest (merged from feature/compose-service-orchestration)
 - [PR #123] Extend Makefile with automated test and build verification targets (merged from feature/makefile-build-pipeline-targets)
+- [PR #124] Enforce strict Content-Type-Options and Frame-Options on native server (merged from feature/http-server-security-headers)
