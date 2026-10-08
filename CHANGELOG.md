@@ -127,3 +127,4 @@
 - [PR #146] Add safe backward-compatible state schema migration utility (merged from feature/localstorage-schema-version-migration)
 - [PR #147] Generate diverse global competitor profiles with distinct playstyles (merged from feature/leaderboard-mock-competitor-profiles)
 - [PR #148] Render animated svg diamond and platinum trophy tiers for achievements (merged from feature/profile-trophy-tier-badges)
+- [PR #149] Ensure all interactive game board cells meet 44px touch target guidelines (merged from feature/css-responsive-touch-targets)
