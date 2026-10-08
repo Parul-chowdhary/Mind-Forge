@@ -81,3 +81,4 @@
 
 - [PR #101] Add 50 grandmaster endgame tactical positions to puzzle bank (merged from feature/chess-tactics-endgame-engine)
 - [PR #102] Optimize Nonogram row validation using bitwise bitmasks (merged from feature/nonogram-bitmask-optimizer)
+- [PR #103] Enhance Reversi positional evaluation matrix for corners and edges (merged from feature/reversi-positional-eval-matrix)
