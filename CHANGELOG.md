@@ -129,3 +129,4 @@
 - [PR #148] Render animated svg diamond and platinum trophy tiers for achievements (merged from feature/profile-trophy-tier-badges)
 - [PR #149] Ensure all interactive game board cells meet 44px touch target guidelines (merged from feature/css-responsive-touch-targets)
 - [PR #150] Add smooth mobile slide drawer transition for navigation panel (merged from feature/css-sidebar-collapsible-drawer)
+- [PR #151] Add neon-cyber styling option for chessboard square coordinates (merged from feature/css-chess-board-wood-cyber-theme)
