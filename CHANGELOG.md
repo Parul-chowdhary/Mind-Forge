@@ -149,3 +149,4 @@
 - [PR #168] Add micro-interaction scale transforms on button hover and active states (merged from feature/css-button-press-scale-transform)
 - [PR #169] Implement gentle pulsing box-shadow on active round timer badges (merged from feature/css-badge-pulsing-glow)
 - [PR #170] Configure Alpine healthcheck interval to 15 seconds with spider flag (merged from feature/dockerfile-healthcheck-script)
+- [PR #171] Optimize docker-compose port binding and logging drivers (merged from feature/compose-volume-caching)
