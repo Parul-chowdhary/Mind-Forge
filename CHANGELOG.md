@@ -105,3 +105,4 @@
 - [PR #124] Enforce strict Content-Type-Options and Frame-Options on native server (merged from feature/http-server-security-headers)
 - [PR #125] Add recursive file integrity checks to production build pipeline (merged from feature/build-verifier-asset-auditing)
 - [PR #126] Add Sicilian and King Indian defense opening lines to chess tactics (merged from feature/chess-opening-book-variations)
+- [PR #127] Tag pre-computed Sudoku library puzzles with rotational symmetries (merged from feature/sudoku-symmetry-classification)
