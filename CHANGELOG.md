@@ -120,3 +120,4 @@
 - [PR #139] Improve spatial 3x3 grid stimulus pulse animation for Dual N-Back (merged from feature/dual-nback-visual-grid-highlight)
 - [PR #140] Calibrate Raven Progressive Matrices IQ bell curve distribution (merged from feature/raven-iq-calibration-curve)
 - [PR #141] Add branching suspect dialogue and alibi cross-examination engine (merged from feature/blackwood-suspect-interrogation-dialogue)
+- [PR #142] Implement dynamic shrink rate decay timer in aim reflex challenge (merged from feature/speed-reflex-target-decay-timer)
