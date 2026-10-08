@@ -146,3 +146,4 @@
 - [PR #165] Add interactive mouse repulsion field radius around particle links (merged from feature/canvas-mouse-repulsion-field)
 - [PR #166] Trigger triumphal arpeggiated sound fanfare on achievement unlock (merged from feature/achievement-sound-fanfare)
 - [PR #167] Add smooth leveling progress bar with glowing XP milestone pips (merged from feature/profile-xp-progress-bar)
+- [PR #168] Add micro-interaction scale transforms on button hover and active states (merged from feature/css-button-press-scale-transform)
