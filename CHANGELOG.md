@@ -86,3 +86,4 @@
 - [PR #105] Add Dual N-Back auditory cue frequency modulation (merged from feature/dual-nback-auditory-cues)
 - [PR #106] Accelerate Sudoku solver with Knuth Algorithm X Dancing Links (merged from feature/sudoku-dancing-links-solver)
 - [PR #107] Add chromatic progression scaling for Quantum Simon memory trainer (merged from feature/quantum-simon-progression)
+- [PR #108] Implement rotation invariant shape transformations for Raven matrices (merged from feature/raven-matrix-abstract-shapes)
