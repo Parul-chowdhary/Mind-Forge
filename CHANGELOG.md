@@ -103,3 +103,4 @@
 - [PR #122] Add healthcheck retries and auto-restart policy to compose manifest (merged from feature/compose-service-orchestration)
 - [PR #123] Extend Makefile with automated test and build verification targets (merged from feature/makefile-build-pipeline-targets)
 - [PR #124] Enforce strict Content-Type-Options and Frame-Options on native server (merged from feature/http-server-security-headers)
+- [PR #125] Add recursive file integrity checks to production build pipeline (merged from feature/build-verifier-asset-auditing)
