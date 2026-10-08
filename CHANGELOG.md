@@ -133,3 +133,4 @@
 - [PR #152] Update package keywords and metadata for offline puzzle ecosystem (merged from feature/package-metadata-keywords)
 - [PR #153] Register proper WOFF2 and TTF font MIME types on local HTTP server (merged from feature/server-mime-font-support)
 - [PR #154] Add ANSI colorization and timing benchmarks to test runner script (merged from feature/test-runner-colorized-reporter)
+- [PR #155] Add three-fold repetition and insufficient material stalemate logic (merged from feature/chess-stalemate-detection)
