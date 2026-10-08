@@ -98,3 +98,4 @@
 - [PR #117] Improve synapse particle clustering physics and pointer gravity well (merged from feature/synaptic-particle-canvas-physics)
 - [PR #118] Calibrate obsidian contrast ratios for WCAG 2.1 AAA accessibility (merged from feature/obsidian-dark-contrast-tokens)
 - [PR #119] Implement hotkey focus outlines on responsive sidebar navigation (merged from feature/dock-navigation-keyboard-shortcuts)
+- [PR #120] Promote glassmorphism game arenas to hardware accelerated composite layers (merged from feature/glassmorphism-card-gpu-layering)
