@@ -16,13 +16,7 @@ const MindForgeCommunityUI = (function() {
   }
 
   function renderMetrics() {
-    const locEl = document.getElementById('repo-metric-loc');
-    const prsEl = document.getElementById('repo-metric-prs');
-    const commitsEl = document.getElementById('repo-metric-commits');
-
-    if (locEl) locEl.textContent = '576,070+';
-    if (prsEl) prsEl.textContent = '125 PRs';
-    if (commitsEl) commitsEl.textContent = '135 Commits';
+    // Metrics display removed per design specification
   }
 
   function renderPRList() {
