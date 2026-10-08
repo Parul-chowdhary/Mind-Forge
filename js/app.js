@@ -14,11 +14,6 @@ const MindForgeApp = (function() {
     if (window.MindForgeState) {
       window.MindForgeState.updateUIElements();
     }
-
-    // Initialize Community Hub
-    if (window.MindForgeCommunityUI) {
-      window.MindForgeCommunityUI.initCommunity();
-    }
   }
 
   function setupNavigation() {
@@ -130,11 +125,6 @@ const MindForgeApp = (function() {
       case 'view-profile':
         if (typeof window.initProfileAndLeaderboard === 'function') {
           setTimeout(window.initProfileAndLeaderboard, 100);
-        }
-        break;
-      case 'view-community':
-        if (window.MindForgeCommunityUI) {
-          window.MindForgeCommunityUI.initCommunity();
         }
         break;
       default:

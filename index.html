@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/games.css">
-  <link rel="stylesheet" href="css/community.css">
   <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
@@ -49,11 +48,6 @@
         <a class="nav-link" data-view="view-profile">
           <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           Player & Radar
-        </a>
-        <a class="nav-link" data-view="view-community">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-          Forge Lab (PRs)
-          <span class="nav-counter">125+</span>
         </a>
 
         <div class="menu-category-title">9 Competitive Arenas</div>
@@ -732,52 +726,6 @@
         </section>
 
         <!-- ================================================================ -->
-        <!-- VIEW 10: FORGE LAB (COMMUNITY, PRS & COMMITS) -->
-        <!-- ================================================================ -->
-        <section id="view-community" class="page-view">
-          <div class="community-header">
-            <h2>🐙 Forge Lab & Open Source Repository</h2>
-            <p>
-              Inspect the platform’s live codebase, review community pull requests, browse git commits, and merge puzzle contributions.
-            </p>
-          </div>
-
-          <!-- Subtabs -->
-          <div class="forge-subtabs">
-            <button class="subtab-btn active" data-subtab="prs">
-              <span>🐙</span> Pull Requests (125+)
-            </button>
-            <button class="subtab-btn" data-subtab="commits">
-              <span>📜</span> Git Commits Timeline (135+)
-            </button>
-          </div>
-
-          <!-- PRs Subview -->
-          <div id="subview-prs">
-            <div class="pr-filter-toolbar">
-              <div class="pr-search-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#94a3b8"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                <input type="text" id="pr-search-input" placeholder="Filter pull requests by title or author...">
-              </div>
-
-              <div class="pr-filter-pills">
-                <button class="pr-pill-filter active" data-filter="all">All PRs</button>
-                <button class="pr-pill-filter" data-filter="open">Open (Ready to Review)</button>
-                <button class="pr-pill-filter" data-filter="merged">Merged</button>
-              </div>
-            </div>
-
-            <!-- List of PRs -->
-            <div id="pr-list-container" class="pr-list-container"></div>
-          </div>
-
-          <!-- Commits Subview -->
-          <div id="subview-commits" style="display: none;">
-            <div id="commits-timeline-container" class="commits-timeline"></div>
-          </div>
-        </section>
-
-        <!-- ================================================================ -->
         <!-- VIEW 11: PLAYER PROFILE & RADAR CHART -->
         <!-- ================================================================ -->
         <section id="view-profile" class="page-view">
@@ -805,8 +753,8 @@
                   <div class="lbl">Puzzles Solved</div>
                 </div>
                 <div class="profile-stat-box">
-                  <div class="num" style="color: var(--mind-indigo);">18</div>
-                  <div class="lbl">PRs Merged</div>
+                  <div class="num" style="color: var(--mind-indigo);">12</div>
+                  <div class="lbl">Tournaments Won</div>
                 </div>
               </div>
             </div>
@@ -854,26 +802,6 @@
     </main>
   </div>
 
-  <!-- Interactive Pull Request Detail Modal -->
-  <div id="pr-detail-modal" class="modal-overlay">
-    <div class="modal-content">
-      <div class="pr-modal-header">
-        <div>
-          <h3 id="pr-modal-title" style="font-size: 1.3rem; margin-bottom: 6px; color: #ffffff;">Pull Request Detail</h3>
-          <div id="pr-modal-meta" class="pr-meta-text"></div>
-        </div>
-        <button class="btn btn-glass" onclick="MindForgeCommunityUI.closePRDetailModal()">✕</button>
-      </div>
-      <div class="pr-modal-body">
-        <h4 style="font-size: 0.95rem; color: var(--text-secondary);">Unified Git Diff:</h4>
-        <div id="pr-modal-diff" class="pr-diff-viewer"></div>
-        <button id="pr-modal-merge-btn" class="btn btn-primary" style="margin-top: 10px;">
-          ✨ Review & Merge Pull Request (+50 XP)
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Toast Notification Container -->
   <div id="toast-container"></div>
 
@@ -893,10 +821,7 @@
   <script src="js/games/speed-games.js"></script>
   <script src="js/games/maze-games.js"></script>
 
-  <!-- Community & Profile -->
-  <script src="js/community/pull-requests-data.js"></script>
-  <script src="js/community/commits-data.js"></script>
-  <script src="js/community/community-ui.js"></script>
+  <!-- Profile & Rankings -->
   <script src="js/profile.js"></script>
 
   <!-- Main Application Coordinator -->

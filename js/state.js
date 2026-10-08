@@ -31,7 +31,7 @@ const MindForgeState = (function() {
       gamesPlayed: 189,
       winRate: 75.1,
       bestStreak: 12,
-      prReviews: 18,
+      tournamentsPlayed: 18,
       tournamentsWon: 3
     },
     achievements: [
@@ -44,7 +44,7 @@ const MindForgeState = (function() {
       { id: 'mastermind_breaker', title: 'Enigma Cracker', desc: 'Crack Mastermind code in 5 attempts or less', icon: '🕵️', unlocked: true },
       { id: 'maze_escape', title: 'Minotaur Bane', desc: 'Escape procedural labyrinth with fog of war', icon: '🧭', unlocked: true },
       { id: 'picross_artisan', title: 'Pixel Sculptor', desc: 'Solve a 10x10 Picross without mistakes', icon: '🖼️', unlocked: false },
-      { id: 'pr_contributor', title: 'Open Source Pioneer', desc: 'Review & merge 5 Community Pull Requests', icon: '🐙', unlocked: true },
+      { id: 'arena_contender', title: 'Arena Contender', desc: 'Compete in 15 arena tournament battles', icon: '⚔️', unlocked: true },
       { id: 'elo_1600', title: 'Vanguard Titan', desc: 'Surpass 1600 ELO rating in competitive arena', icon: '🛡️', unlocked: false },
       { id: 'polymath', title: 'Cognitive Polymath', desc: 'Attain 75+ rating in all 6 cognitive pillars', icon: '👑', unlocked: false }
     ],
