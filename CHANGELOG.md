@@ -116,3 +116,4 @@
 - [PR #135] Tune minimax heuristic corner stability weight matrix for Reversi AI (merged from feature/reversi-corner-stability-weights)
 - [PR #136] Add dual column constraint inference engine for Picross solver (merged from feature/nonogram-column-constraint-solver)
 - [PR #137] Add infinite undo and redo history stack for Sudoku pencil annotations (merged from feature/sudoku-pencil-notes-undo-stack)
+- [PR #138] Enforce strict revealed letter reutilization rules in Wordle hard mode (merged from feature/wordle-hard-mode-constraint-rules)
