@@ -109,3 +109,4 @@
 - [PR #128] Precalculate Kruskal spanning tree dead-end ratios for labyrinths (merged from feature/maze-kruskal-spanning-trees)
 - [PR #129] Curate 100 extra five-variable constraint matrices for Einstein puzzles (merged from feature/einstein-riddle-five-variable-sets)
 - [PR #130] Refine cryptographic quote corpus with historical computing enigmas (merged from feature/philosophical-cipher-corpus-tuning)
+- [PR #131] Cache optimal topological routing steps across 75,000 graph nodes (merged from feature/pathfinding-graph-heuristic-cache)
