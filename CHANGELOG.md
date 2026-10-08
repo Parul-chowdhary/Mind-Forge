@@ -112,3 +112,4 @@
 - [PR #131] Cache optimal topological routing steps across 75,000 graph nodes (merged from feature/pathfinding-graph-heuristic-cache)
 - [PR #132] Add dual XOR boolean shape combination puzzles to pattern bank (merged from feature/pattern-matrix-xor-operations)
 - [PR #133] Expand crime scenario dossiers with verified physical clue chains (merged from feature/detective-dossier-forensic-clues)
+- [PR #134] Expand offline 5-letter vocabulary database with competition valid words (merged from feature/lexicon-five-letter-dictionary)
