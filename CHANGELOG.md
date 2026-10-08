@@ -152,3 +152,4 @@
 - [PR #171] Optimize docker-compose port binding and logging drivers (merged from feature/compose-volume-caching)
 - [PR #172] Add clean target to remove scratch files and temporary test logs (merged from feature/makefile-clean-artifacts)
 - [PR #173] Add Vary Accept-Encoding headers to native HTTP static response (merged from feature/server-gzip-compression-headers)
+- [PR #174] Perform node syntax check pass on all production JS files during build (merged from feature/build-syntax-validation-pass)
