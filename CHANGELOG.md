@@ -137,3 +137,4 @@
 - [PR #156] Auto-cross eliminated cells when nonogram row requirements complete (merged from feature/nonogram-auto-cross-elimination)
 - [PR #157] Persist personal best 2048 high score across browser sessions (merged from feature/2048-high-score-persister)
 - [PR #158] Provide single-letter hint reveal mode for introductory ciphers (merged from feature/cryptogram-caesar-preset-hints)
+- [PR #159] Add exponential score multiplier for continuous Simon memory runs (merged from feature/simon-streak-multiplier)
