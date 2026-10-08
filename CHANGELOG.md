@@ -107,3 +107,4 @@
 - [PR #126] Add Sicilian and King Indian defense opening lines to chess tactics (merged from feature/chess-opening-book-variations)
 - [PR #127] Tag pre-computed Sudoku library puzzles with rotational symmetries (merged from feature/sudoku-symmetry-classification)
 - [PR #128] Precalculate Kruskal spanning tree dead-end ratios for labyrinths (merged from feature/maze-kruskal-spanning-trees)
+- [PR #129] Curate 100 extra five-variable constraint matrices for Einstein puzzles (merged from feature/einstein-riddle-five-variable-sets)
