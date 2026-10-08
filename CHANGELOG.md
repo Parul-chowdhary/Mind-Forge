@@ -135,3 +135,4 @@
 - [PR #154] Add ANSI colorization and timing benchmarks to test runner script (merged from feature/test-runner-colorized-reporter)
 - [PR #155] Add three-fold repetition and insufficient material stalemate logic (merged from feature/chess-stalemate-detection)
 - [PR #156] Auto-cross eliminated cells when nonogram row requirements complete (merged from feature/nonogram-auto-cross-elimination)
+- [PR #157] Persist personal best 2048 high score across browser sessions (merged from feature/2048-high-score-persister)
