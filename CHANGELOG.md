@@ -166,3 +166,4 @@
 - [PR #185] Correct canvas display coordinate scaling on high-DPI Retina screens (merged from feature/canvas-high-dpi-retina-scaling)
 - [PR #186] Add JSON output format support to repository statistics auditor (merged from feature/stats-json-output-mode)
 - [PR #187] Update documentation with architecture overview and test commands (merged from feature/final-documentation-refinements)
+- [PR #188] Bump MindForge platform version to 2.5.0 stable release (merged from feature/version-bump-release-candidate)
