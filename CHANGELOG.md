@@ -151,3 +151,4 @@
 - [PR #170] Configure Alpine healthcheck interval to 15 seconds with spider flag (merged from feature/dockerfile-healthcheck-script)
 - [PR #171] Optimize docker-compose port binding and logging drivers (merged from feature/compose-volume-caching)
 - [PR #172] Add clean target to remove scratch files and temporary test logs (merged from feature/makefile-clean-artifacts)
+- [PR #173] Add Vary Accept-Encoding headers to native HTTP static response (merged from feature/server-gzip-compression-headers)
