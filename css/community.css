@@ -1,0 +1,272 @@
+/* ==========================================================================
+   MINDFORGE COMMUNITY, PULL REQUESTS & COMMITS EXPLORER
+   ========================================================================== */
+
+.community-header {
+  margin-bottom: 24px;
+}
+.community-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.community-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.metric-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.metric-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.metric-meta h4 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+.metric-meta p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Sub Navigation Tabs (PRs vs Commits vs Submit) */
+.forge-subtabs {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+.subtab-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.subtab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-highlight);
+}
+.subtab-btn.active {
+  background: rgba(99, 102, 241, 0.2);
+  color: #ffffff;
+  border: 1px solid var(--border-glow);
+}
+
+/* PR Search & Filters */
+.pr-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.pr-search-box {
+  background: rgba(18, 22, 38, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 320px;
+}
+.pr-search-box input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  font-size: 0.88rem;
+  width: 100%;
+}
+.pr-filter-pills {
+  display: flex;
+  gap: 8px;
+}
+.pr-pill-filter {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.pr-pill-filter.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--forge-amber);
+  border-color: var(--forge-amber);
+}
+
+/* Pull Requests List */
+.pr-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 650px;
+  overflow-y: auto;
+}
+.pr-card-row {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.pr-card-row:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+  transform: translateX(4px);
+}
+.pr-status-icon {
+  font-size: 1.25rem;
+}
+.pr-info-body {
+  flex: 1;
+}
+.pr-title-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pr-meta-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pr-diff-stat {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.pr-diff-add { color: #10b981; }
+.pr-diff-del { color: #f43f5e; }
+
+/* Interactive Pull Request Detail Modal */
+.pr-modal-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pr-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pr-diff-viewer {
+  background: #090b14;
+  border-radius: var(--radius-md);
+  border: 1px solid #1e263d;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  padding: 16px;
+  max-height: 380px;
+}
+.diff-line {
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: pre;
+}
+.diff-add {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+.diff-del {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+}
+.diff-info {
+  color: var(--cyber-cyan);
+}
+
+/* Commits Timeline */
+.commits-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 650px;
+  overflow-y: auto;
+  position: relative;
+  padding-left: 20px;
+}
+.commits-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.commit-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.commit-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--forge-amber);
+  box-shadow: 0 0 10px var(--forge-amber);
+}
+.commit-hash {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--cyber-cyan);
+  background: rgba(6, 182, 212, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
