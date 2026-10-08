@@ -1,11 +1,14 @@
 {
   "name": "mind-forge",
   "version": "2.4.0",
-  "description": "MindForge - A Premier Competitive Platform for Puzzles, Brain Games & Logical Challenges",
-  "main": "index.html",
+  "description": "MindForge - A Competitive Platform for Puzzles, Brain Games & Logical Challenges",
+  "main": "server.js",
+  "private": true,
+  "license": "UNLICENSED",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve .",
+    "start": "node server.js",
+    "serve": "node server.js",
+    "build": "node scripts/build.js",
     "test": "node scripts/run-tests.js",
     "stats": "node scripts/calc-stats.js"
   },
@@ -18,9 +21,7 @@
     "nonogram",
     "pathfinding",
     "competitive-puzzles",
-    "iq-test",
     "cognitive-training"
   ],
-  "author": "MindForge Engineering Team",
-  "license": "MIT"
+  "author": "MindForge Core Engineering Team"
 }

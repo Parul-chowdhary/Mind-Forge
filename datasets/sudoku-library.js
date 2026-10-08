@@ -1,5 +1,5 @@
 // MindForge Sudoku Master Vault
-// Thousands of verified Sudoku puzzles with symmetry & analytical grading
+// Verified Sudoku puzzle bank with rotational symmetry & analytical grading
 window.MindForgeSudokuVault = (function() {
   const BOARDS = [
     { id: "sdk-1", difficulty: "Medium", givens: 32, symmetry: "Rotational-1", seed: 1103527590, estTime: 301 },

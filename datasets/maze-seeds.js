@@ -1,4 +1,4 @@
-// MindForge Procedural Maze & Labyrinth Seeds
+// MindForge Procedural Labyrinth & Maze Matrix Bank
 // Topological graph definitions & shortest path precomputations
 window.MindForgeMazeSeeds = (function() {
   const LABYRINTHS = [
