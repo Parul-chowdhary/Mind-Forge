@@ -155,3 +155,4 @@
 - [PR #174] Perform node syntax check pass on all production JS files during build (merged from feature/build-syntax-validation-pass)
 - [PR #175] Display standard algebraic chess notation log alongside puzzle board (merged from feature/chess-algebraic-notation-display)
 - [PR #176] Include beginner-friendly 5x5 tutorial nonogram board layouts (merged from feature/nonogram-5x5-tutorial-boards)
+- [PR #177] Add user toggle to highlight conflicting duplicate numbers in grid (merged from feature/sudoku-error-highlight-toggle)
