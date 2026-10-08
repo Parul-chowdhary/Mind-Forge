@@ -117,3 +117,4 @@
 - [PR #136] Add dual column constraint inference engine for Picross solver (merged from feature/nonogram-column-constraint-solver)
 - [PR #137] Add infinite undo and redo history stack for Sudoku pencil annotations (merged from feature/sudoku-pencil-notes-undo-stack)
 - [PR #138] Enforce strict revealed letter reutilization rules in Wordle hard mode (merged from feature/wordle-hard-mode-constraint-rules)
+- [PR #139] Improve spatial 3x3 grid stimulus pulse animation for Dual N-Back (merged from feature/dual-nback-visual-grid-highlight)
