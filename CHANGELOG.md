@@ -128,3 +128,4 @@
 - [PR #147] Generate diverse global competitor profiles with distinct playstyles (merged from feature/leaderboard-mock-competitor-profiles)
 - [PR #148] Render animated svg diamond and platinum trophy tiers for achievements (merged from feature/profile-trophy-tier-badges)
 - [PR #149] Ensure all interactive game board cells meet 44px touch target guidelines (merged from feature/css-responsive-touch-targets)
+- [PR #150] Add smooth mobile slide drawer transition for navigation panel (merged from feature/css-sidebar-collapsible-drawer)
