@@ -78,3 +78,5 @@
 - [Commit Milestone #113] Optimization & test hardening for Engine Module #7
 - [Commit Milestone #114] Optimization & test hardening for Engine Module #8
 - [Commit Milestone #115] Optimization & test hardening for Engine Module #9
+
+- [PR #101] Add 50 grandmaster endgame tactical positions to puzzle bank (merged from feature/chess-tactics-endgame-engine)
