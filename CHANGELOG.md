@@ -90,3 +90,4 @@
 - [PR #109] Add forensic timeline constraint solver for Detective dossiers (merged from feature/blackwood-manor-alibi-matrix)
 - [PR #110] Fine-tune millisecond timer accuracy in Stroop reaction challenge (merged from feature/stroop-color-reaction-tuning)
 - [PR #111] Add bidirectional A* pathfinding search mode with Manhattan heuristic (merged from feature/astar-maze-bidirectional-search)
+- [PR #112] Incorporate Shannon information entropy scorer into Wordle Forge (merged from feature/wordle-entropy-suggestion-engine)
