@@ -157,3 +157,4 @@
 - [PR #176] Include beginner-friendly 5x5 tutorial nonogram board layouts (merged from feature/nonogram-5x5-tutorial-boards)
 - [PR #177] Add user toggle to highlight conflicting duplicate numbers in grid (merged from feature/sudoku-error-highlight-toggle)
 - [PR #178] Generate colored emoji grid result block for sharing puzzle solutions (merged from feature/wordle-share-card-generator)
+- [PR #179] Add stereo spatial audio panning for advanced Dual N-Back sessions (merged from feature/nback-audio-stereo-panning)
