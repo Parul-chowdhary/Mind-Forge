@@ -94,3 +94,4 @@
 - [PR #113] Add letter frequency histogram tool to Cryptogram decoder (merged from feature/cryptogram-frequency-analysis)
 - [PR #114] Optimize sliding tile keyframe animations and matrix transpositions (merged from feature/2048-smooth-tile-physics)
 - [PR #115] Enhance 6-axis cognitive radar chart with glowing polygonal vertices (merged from feature/cognitive-radar-canvas-rendering)
+- [PR #116] Implement provisional dynamic K-factor scaling in ELO rating engine (merged from feature/elo-rating-dynamic-k-factor)
