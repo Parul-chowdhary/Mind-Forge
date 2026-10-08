@@ -123,3 +123,4 @@
 - [PR #142] Implement dynamic shrink rate decay timer in aim reflex challenge (merged from feature/speed-reflex-target-decay-timer)
 - [PR #143] Add Trémaux and Right-Hand Rule maze solving fallback visualizers (merged from feature/maze-wall-follower-fallback)
 - [PR #144] Add lowpass biquad filter frequency modulation during pause states (merged from feature/webaudio-biquad-filter-muffle)
+- [PR #145] Throttle canvas particle simulation to 30fps when document tab is hidden (merged from feature/synapse-fps-throttling-idle)
