@@ -139,3 +139,4 @@
 - [PR #158] Provide single-letter hint reveal mode for introductory ciphers (merged from feature/cryptogram-caesar-preset-hints)
 - [PR #159] Add exponential score multiplier for continuous Simon memory runs (merged from feature/simon-streak-multiplier)
 - [PR #160] Award rapid deduction bonus points for fast pattern recognition (merged from feature/raven-timer-bonus-points)
+- [PR #161] Add in-game detective notepad for scribbling deduction hypotheses (merged from feature/detective-notepad-scrapbook)
