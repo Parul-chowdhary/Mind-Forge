@@ -138,3 +138,4 @@
 - [PR #157] Persist personal best 2048 high score across browser sessions (merged from feature/2048-high-score-persister)
 - [PR #158] Provide single-letter hint reveal mode for introductory ciphers (merged from feature/cryptogram-caesar-preset-hints)
 - [PR #159] Add exponential score multiplier for continuous Simon memory runs (merged from feature/simon-streak-multiplier)
+- [PR #160] Award rapid deduction bonus points for fast pattern recognition (merged from feature/raven-timer-bonus-points)
